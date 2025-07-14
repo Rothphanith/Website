@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Skincare | Admin Dashboard</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+   <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Auth Section -->
+    <div id="auth-section" class="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
+        <div class="max-w-md w-full">
+            <!-- Login Form -->
+            <div id="login-form-container" class="bg-white rounded-lg shadow-md p-8">
+                <div class="flex justify-center mb-6">
+                     <svg class="h-12 w-12 text-pink-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624l-.218-2.182a3.375 3.375 0 00-2.456-2.456l-2.182-.218m5.511 4.639a3.375 3.375 0 01-2.455-2.456l-.218-2.182m-2.182 2.182l2.182.218a3.375 3.375 0 002.456 2.456l.218 2.182" /></svg>
+                    <span class="text-gray-800 text-3xl font-bold ml-2">Aura Admin</span>
+                </div>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login to your account</h2>
+                <form id="login-form">
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500" placeholder="Leave blank to login as guest">
+                    </div>
+                    <div class="mb-6">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500" placeholder="Leave blank to login as guest">
+                    </div>
+                     <p id="login-error" class="text-red-500 text-sm text-center mb-4 hidden"></p>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                            <span class="btn-text">Login</span>
+                            <div class="loader hidden ml-2"></div>
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    Don't have an account? 
+                    <a href="#" id="show-register-link" class="font-medium text-pink-600 hover:text-pink-500">Register here</a>
+                </p>
+            </div>
+
+            <!-- Registration Form (hidden by default) -->
+            <div id="register-form-container" class="hidden bg-white rounded-lg shadow-md p-8">
+                 <div class="flex justify-center mb-6">
+                     <svg class="h-12 w-12 text-pink-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624l-.218-2.182a3.375 3.375 0 00-2.456-2.456l-2.182-.218m5.511 4.639a3.375 3.375 0 01-2.455-2.456l-.218-2.182m-2.182 2.182l2.182.218a3.375 3.375 0 002.456 2.456l.218 2.182" /></svg>
+                    <span class="text-gray-800 text-3xl font-bold ml-2">Aura Admin</span>
+                </div>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Create a new account</h2>
+                <form id="register-form">
+                    <div class="mb-4">
+                        <label for="register-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="register-name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="register-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="register-email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="register-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="register-password" name="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500" required>
+                    </div>
+                     <p id="register-error" class="text-red-500 text-sm text-center mb-4 hidden"></p>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                           <span class="btn-text">Register</span>
+                           <div class="loader hidden ml-2"></div>
+                        </button>
+                    </div>
+                </form>
+                 <p class="text-center text-sm text-gray-600 mt-4">
+                    Already have an account? 
+                    <a href="#" id="show-login-link" class="font-medium text-pink-600 hover:text-pink-500">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section (Initially Hidden) -->
+    <div id="dashboard-section" class="hidden">
+       <div class="flex h-screen bg-gray-100">
+            <aside class="sidebar w-64 flex-shrink-0 p-4 hidden md:flex md:flex-col">
+                <div class="flex items-center mb-8">
+                    <svg class="h-10 w-10 text-pink-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.624l-.218-2.182a3.375 3.375 0 00-2.456-2.456l-2.182-.218m5.511 4.639a3.375 3.375 0 01-2.455-2.456l-.218-2.182m-2.182 2.182l2.182.218a3.375 3.375 0 002.456 2.456l.218 2.182" /></svg>
+                    <span class="text-white text-2xl font-bold ml-2">Aura</span>
+                </div>
+                <nav class="space-y-2 flex-1">
+                    <a data-page="dashboard" class="sidebar-link active"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg><span>Dashboard</span></a>
+                    <a data-page="products" class="sidebar-link"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg><span>Products</span></a>
+                    <a data-page="orders" class="sidebar-link"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg><span>Orders</span></a>
+                    <a data-page="customers" class="sidebar-link"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 21a6 6 0 006-6v-1a6 6 0 00-9-5.197"></path></svg><span>Customers</span></a>
+                </nav>
+                <a id="logout-button" class="sidebar-link mt-auto"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg><span>Log out</span></a>
+            </aside>
+            <div class="flex-1 flex flex-col overflow-hidden">
+                <header class="bg-white shadow-sm p-4 flex justify-between items-center">
+                     <h2 class="text-2xl font-semibold text-gray-700">Skincare Management System</h2>
+                     <div class="flex items-center space-x-4">
+                        <div class="text-right"><p id="current-date" class="text-sm font-medium text-gray-600"></p><p id="current-time" class="text-xs text-gray-500"></p></div>
+                        <div class="flex items-center"><img class="h-10 w-10 rounded-full object-cover" src="https://placehold.co/100x100/FFC0CB/4A4A4A?text=A" alt="Admin Avatar"><div class="ml-2"><p id="admin-name" class="text-sm font-semibold">Alex Doe</p><p class="text-xs text-gray-500">Admin</p></div></div>
+                     </div>
+                </header>
+                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                    <div id="dashboard-page" class="page">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Dashboard</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                            <div class="stat-card bg-gradient-to-br from-green-400 to-green-600 shadow-lg"><h4 class="font-bold text-3xl" id="total-revenue">$0.00</h4><p class="text-green-100">Total Revenue</p></div>
+                            <div class="stat-card bg-gradient-to-br from-pink-400 to-pink-600 shadow-lg"><h4 class="font-bold text-3xl" id="total-orders">0</h4><p class="text-pink-100">Total Orders</p></div>
+                            <div class="stat-card bg-gradient-to-br from-blue-400 to-blue-600 shadow-lg"><h4 class="font-bold text-3xl" id="total-customers">0</h4><p class="text-blue-100">Total Customers</p></div>
+                            <div class="stat-card bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg"><h4 class="font-bold text-3xl" id="products-in-stock">0</h4><p class="text-yellow-100">Products in Stock</p></div>
+                        </div>
+                    </div>
+                    <div id="products-page" class="page hidden"><div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-semibold text-gray-800">Products</h3><button id="add-product-btn" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 flex items-center"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>Add Product</button></div><div class="bg-white p-6 rounded-lg shadow-md"><div class="overflow-x-auto" id="products-table-container"></div></div></div>
+                    <div id="orders-page" class="page hidden"><h3 class="text-2xl font-semibold text-gray-800 mb-4">Orders</h3><div class="bg-white p-6 rounded-lg shadow-md"><div class="overflow-x-auto" id="orders-table-container"></div></div></div>
+                    <div id="customers-page" class="page hidden"><h3 class="text-2xl font-semibold text-gray-800 mb-4">Customers</h3><div class="bg-white p-6 rounded-lg shadow-md"><div class="overflow-x-auto" id="customers-table-container"></div></div></div>
+                </main>
+            </div>
+        </div>
+    </div>
+    
+    <div id="product-modal" class="modal-overlay hidden"><div class="modal-content"><h3 class="text-xl font-semibold mb-4" id="modal-title">Add New Product</h3><form id="product-form"><div class="mb-4"><label for="product-name" class="block text-sm font-medium text-gray-700">Product Name</label><input type="text" id="product-name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" required></div><div class="mb-4"><label for="product-price" class="block text-sm font-medium text-gray-700">Price ($)</label><input type="number" id="product-price" name="price" step="0.01" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" required></div><div class="mb-4"><label for="product-stock" class="block text-sm font-medium text-gray-700">Stock Quantity</label><input type="number" id="product-stock" name="stock" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring-pink-500" required></div><div class="flex justify-end space-x-4"><button type="button" id="cancel-btn" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300">Cancel</button><button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600">Save Product</button></div></form></div></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
